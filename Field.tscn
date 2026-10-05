@@ -29,7 +29,7 @@ size = Vector2(75.722946, 76.09085)
 
 [node name="Node2D" type="Node2D" unique_id=905496164]
 script = ExtResource("1_7sdab")
-Objects = Array[PackedScene]([ExtResource("4_sl1x8"), ExtResource("2_48t60"), ExtResource("3_sl1x8")])
+Objects = Array[PackedScene]([ExtResource("2_48t60"), ExtResource("3_sl1x8"), ExtResource("4_sl1x8")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1434094928]
 position = Vector2(575, 318)
