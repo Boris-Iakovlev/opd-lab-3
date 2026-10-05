@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://brvrmiwqm3pa6"]
+
+[ext_resource type="Script" uid="uid://di53wgyo1wpue" path="res://Field.cs" id="1_7sdab"]
+[ext_resource type="PackedScene" uid="uid://dxk31aq4o1flm" path="res://Player/Player.tscn" id="1_8j5rm"]
+[ext_resource type="PackedScene" uid="uid://cyntbytn83dlu" path="res://Enemies/Bat/Bat.tscn" id="2_48t60"]
+[ext_resource type="PackedScene" uid="uid://blyf84svgy1n7" path="res://Enemies/Zombie/Zombie.tscn" id="3_sl1x8"]
+[ext_resource type="PackedScene" uid="uid://cfditc2mn5gnl" path="res://Enemies/Rock/Rock.tscn" id="4_sl1x8"]
+
+[sub_resource type="Gradient" id="Gradient_0m6is"]
+offsets = PackedFloat32Array(0.005, 0.975)
+colors = PackedColorArray(0.2832484, 0.35170668, 0.7591068, 1, 0.5764854, 0.80799365, 0.832163, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8vrlf"]
+gradient = SubResource("Gradient_0m6is")
+fill_from = Vector2(0.51785713, 0)
+fill_to = Vector2(0.50714284, 1)
+
+[sub_resource type="Gradient" id="Gradient_7sdab"]
+offsets = PackedFloat32Array(0.005, 0.97)
+colors = PackedColorArray(0.16820624, 0.4497128, 0.45038956, 1, 0.7225919, 0.79850835, 0.5388225, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m6s6n"]
+gradient = SubResource("Gradient_7sdab")
+fill_from = Vector2(0.47857141, 1)
+fill_to = Vector2(0.49285713, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(75.722946, 76.09085)
+
+[node name="Node2D" type="Node2D" unique_id=905496164]
+script = ExtResource("1_7sdab")
+Objects = Array[PackedScene]([ExtResource("4_sl1x8"), ExtResource("2_48t60"), ExtResource("3_sl1x8")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1434094928]
+position = Vector2(575, 318)
+scale = Vector2(18.526741, 10.938074)
+texture = SubResource("GradientTexture2D_8vrlf")
+
+[node name="Grass" type="StaticBody2D" parent="." unique_id=1827193855]
+position = Vector2(576, 583.99994)
+scale = Vector2(18.48, 2.2000027)
+
+[node name="Sprite2D" type="Sprite2D" parent="Grass" unique_id=579300599]
+texture = SubResource("GradientTexture2D_m6s6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass" unique_id=1305934230]
+position = Vector2(5.8073597, -6.954468)
+shape = SubResource("RectangleShape2D_1vivr")
+
+[node name="CharacterBody2D" parent="." unique_id=1869613273 instance=ExtResource("1_8j5rm")]
+position = Vector2(129, 345)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=816191329]
+position = Vector2(1268, 502)
