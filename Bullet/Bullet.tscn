@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://5v85kf6283rr"]
+
+[ext_resource type="Script" uid="uid://cbjp74km6b8r7" path="res://Bullet/Bullet.cs" id="1_qratc"]
+
+[sub_resource type="Gradient" id="Gradient_uumvb"]
+offsets = PackedFloat32Array(0.005141388, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qratc"]
+gradient = SubResource("Gradient_uumvb")
+
+[sub_resource type="Gradient" id="Gradient_v7qj8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uumvb"]
+gradient = SubResource("Gradient_v7qj8")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
+radius = 33.01515
+
+[node name="Bullet" type="CharacterBody2D" unique_id=1133219345]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_qratc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=821907822]
+rotation = -2.3561945
+scale = Vector2(0.29561204, 0.2956122)
+texture = SubResource("GradientTexture2D_qratc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2124828173]
+rotation = -0.7853982
+scale = Vector2(0.23563056, 0.23563056)
+texture = SubResource("GradientTexture2D_uumvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=805607805]
+shape = SubResource("CircleShape2D_1vivr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1025282777]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1835953303]
+shape = SubResource("CircleShape2D_1vivr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1073679553]
+
+[connection signal="area_entered" from="Area2D" to="." method="_On_Collision"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_On_ScreenLeave"]

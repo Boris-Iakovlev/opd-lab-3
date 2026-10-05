@@ -1,17 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpgskpm8nrjyt"]
+[gd_scene format=3 uid="uid://dxk31aq4o1flm"]
 
-[ext_resource type="Script" uid="uid://brtb2376s322w" path="res://player/player.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://gewi7do50xix" path="res://player/player.png" id="2"]
+[ext_resource type="Script" uid="uid://qwqmsrwq5j17" path="res://Player/Player.cs" id="1_xhfnw"]
 
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(14, 14)
+[sub_resource type="Gradient" id="Gradient_xhfnw"]
 
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("1")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kpjcp"]
+gradient = SubResource("Gradient_xhfnw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2")
+[sub_resource type="CircleShape2D" id="CircleShape2D_45qf2"]
+radius = 19.104973
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.315559, 0.157784)
-shape = SubResource("1")
+[sub_resource type="CircleShape2D" id="CircleShape2D_qratc"]
+radius = 19.026299
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1869613273]
+script = ExtResource("1_xhfnw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=348808460]
+texture = SubResource("GradientTexture2D_kpjcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1454316332]
+shape = SubResource("CircleShape2D_45qf2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1680948549]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=937170317]
+shape = SubResource("CircleShape2D_qratc")
+
+[connection signal="area_entered" from="Area2D" to="." method="_On_Collision"]
