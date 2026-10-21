@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxk31aq4o1flm"]
 
-[ext_resource type="Script" uid="uid://qwqmsrwq5j17" path="res://Player/Player.cs" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://qwqmsrwq5j17" path="res://player/Player.cs" id="1_xhfnw"]
 
 [sub_resource type="Gradient" id="Gradient_xhfnw"]
 
@@ -15,6 +15,7 @@ radius = 19.026299
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1869613273]
 script = ExtResource("1_xhfnw")
+BulletDamage = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=348808460]
 texture = SubResource("GradientTexture2D_kpjcp")
